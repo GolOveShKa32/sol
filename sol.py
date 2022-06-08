@@ -9,7 +9,7 @@ vk = vk_session.get_api()
 normal_price = 2350
 message = "Цена Solana меньше 2.350 руб"
 
-url = "https://coinmarketcap.com/ru/currencies/solana/"
+url = "https://coinmarketcap.com/ru/currencies/green-satoshi-token/" #"https://coinmarketcap.com/ru/currencies/solana/"
 
 headers = {
     'authority': 'coinmarketcap.com',
@@ -31,7 +31,7 @@ headers = {
 }
 
 while True:
-    try:
+
         r = requests.get(url, headers=headers)
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -41,8 +41,5 @@ while True:
         price = price[1:].replace(',', '')
 
         if float(price) <= normal_price:
-            for x in range(5):
-                vk.messages.send(user_id=456149681, random_id=0, message=message)
+            vk.messages.send(user_id=456149681, random_id=0, message=message)
             sleep(60)
-    except:
-        print("error")
