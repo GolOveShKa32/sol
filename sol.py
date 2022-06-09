@@ -46,5 +46,6 @@ while True:
                 vk.messages.send(user_id=456149681, random_id=0, message=f"покупай кросы, цена GST {price} руб")
                 sleep(3)
             sleep(60*60)
+        sleep(10)
     except:
         print("error")
